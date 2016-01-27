@@ -20,12 +20,14 @@ resource "google_compute_firewall" "firewall-external" {
 
   allow {
     protocol = "tcp"
-    ports = ["1-65535"]
-  }
+    ports = [
+      "22",  # SSH
+      "80",  # HTTP
+      "443", # HTTPs
 
-  allow {
-    protocol = "udp"
-    ports = ["1-65535"]
+      # TODO: this port should eventually be removed!
+      "8500",
+    ]
   }
 }
 
