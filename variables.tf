@@ -4,6 +4,9 @@ variable leader_volume_size { default = "20" } # size is in gigabytes
 variable worker_count { default = 3 }
 variable worker_type { default = "n1-standard-1" }
 variable worker_volume_size { default = "20" } # size is in gigabytes
+variable edge_count { default = 0 }
+variable edge_type { default = "n1-standard-1" }
+variable edge_volume_size { default = "10" } # size is in gigabytes
 variable name { default = "mantl" }
 variable network_ipv4 { default = "10.0.0.0/16" }
 variable project {}
