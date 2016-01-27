@@ -7,9 +7,11 @@ yum install -y consul-0.6.3
 
 jq --argjson ips $IPS \
    --arg id $(cat /etc/mantl/id) \
+   --arg public_ip $(cat /etc/mantl/public_ip) \
    '.bootstrap_expect = ($ips | length)
     | .retry_join = $ips
-    | .node_name = $id' \
+    | .node_name = $id
+    | .advertise_addr_wan = $public_ip' \
    > /etc/consul/consul.json \
    <<EOF
 {
