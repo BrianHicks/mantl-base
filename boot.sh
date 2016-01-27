@@ -7,6 +7,10 @@ gpgcheck=0
 enabled=1
 EOF
 
+# disable firewalld
+systemctl disable firewalld
+systemctl stop firewalld
+
 # install base packages
 yum install -y epel-release
 yum install -y jq
