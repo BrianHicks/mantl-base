@@ -34,7 +34,6 @@ resource "null_resource" "bootstrap-leader" {
   depends_on = ["google_compute_instance.leader-nodes"]
   triggers {
     cluster_instance_ips = "${join(",", google_compute_instance.leader-nodes.*.network_interface.0.address)}"
-    content = "${file("bootstrap-leader.sh")}"
   }
 
   connection {
