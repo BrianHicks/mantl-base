@@ -33,7 +33,7 @@ resource "null_resource" "bootstrap-worker" {
 
   depends_on = ["google_compute_instance.worker-nodes", "null_resource.bootstrap-leader"]
   triggers {
-    cluster_instance_ips = "${join(",", google_compute_instance.worker-nodes.*.network_interface.0.address)}"
+    cluster_instance_ips = "${join(",", google_compute_instance.leader-nodes.*.network_interface.0.address)}"
   }
 
   connection {
