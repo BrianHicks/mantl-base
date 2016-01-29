@@ -4,7 +4,7 @@ set -e
 IPS=$(jq -s -R -M -c 'split("\n")' < /etc/mantl/leaders)
 
 ### CONSUL ###
-yum install -y consul-0.6.3
+yum install -y consul-0.6.3 mantl-dns-1.0.0
 
 jq --argjson ips $IPS \
    --arg id $(cat /etc/mantl/id) \
